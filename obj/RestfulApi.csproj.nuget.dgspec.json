@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Anthony\\Project\\RestfulAPI\\RestfulApi.csproj": {}
+    "/home/anthony/RestfulAPI/RestfulApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Anthony\\Project\\RestfulAPI\\RestfulApi.csproj": {
+    "/home/anthony/RestfulAPI/RestfulApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Anthony\\Project\\RestfulAPI\\RestfulApi.csproj",
+        "projectUniqueName": "/home/anthony/RestfulAPI/RestfulApi.csproj",
         "projectName": "RestfulApi",
-        "projectPath": "C:\\Users\\Anthony\\Project\\RestfulAPI\\RestfulApi.csproj",
-        "packagesPath": "C:\\Users\\Anthony\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Anthony\\Project\\RestfulAPI\\obj\\",
+        "projectPath": "/home/anthony/RestfulAPI/RestfulApi.csproj",
+        "packagesPath": "/home/anthony/.nuget/packages/",
+        "outputPath": "/home/anthony/RestfulAPI/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Anthony\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/home/anthony/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -83,7 +83,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/5.0.403/RuntimeIdentifierGraph.json"
         }
       }
     }
