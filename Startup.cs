@@ -12,6 +12,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using Microsoft.EntityFrameworkCore;
+using Pomelo.EntityFrameworkCore.MySql;
 using RestfulApi.Models;
 
 namespace RestfulApi
@@ -30,6 +31,9 @@ namespace RestfulApi
         {
 
             services.AddControllers();
+
+            services.AddDbContext<BatteryContext>(options =>
+            options.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddDbContext<BatteryContext>(opt => opt.UseInMemoryDatabase("Informations"));
             services.AddSwaggerGen(c =>
