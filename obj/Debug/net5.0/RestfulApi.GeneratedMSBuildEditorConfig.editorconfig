@@ -7,4 +7,4 @@ build_property.PublishSingleFile =
 build_property.IncludeAllContentForSelfExtract = 
 build_property._SupportedPlatformList = Android,iOS,Linux,macOS,Windows
 build_property.RootNamespace = RestfulApi
-build_property.ProjectDir = C:\Users\Anthony\Project\RestfulAPI\
+build_property.ProjectDir = c:\Users\samae\RestfulApi\

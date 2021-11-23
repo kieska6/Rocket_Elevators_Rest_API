@@ -270,3 +270,7 @@ C:\Users\Anthony\Project\RestfulAPI\obj\Debug\net5.0\scopedcss\bundle\RestfulApi
 C:\Users\Anthony\Project\RestfulAPI\obj\Debug\net5.0\RestfulApi.RazorTargetAssemblyInfo.cache
 C:\Users\Anthony\Project\RestfulAPI\obj\Debug\net5.0\RestfulApi.csproj.CopyComplete
 C:\Users\Anthony\Project\RestfulAPI\obj\Debug\net5.0\RestfulApi.genruntimeconfig.cache
+C:\Users\samae\RestfulApi\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\samae\RestfulApi\bin\Debug\net5.0\MySqlConnector.dll
+C:\Users\samae\RestfulApi\bin\Debug\net5.0\Pomelo.EntityFrameworkCore.MySql.dll
+C:\Users\samae\RestfulApi\bin\Debug\net5.0\System.Diagnostics.DiagnosticSource.dll
