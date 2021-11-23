@@ -1,8 +1,8 @@
 {
   "runtimeOptions": {
     "additionalProbingPaths": [
-      "C:\\Users\\samae\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\samae\\.nuget\\packages"
+      "/home/godly/.dotnet/store/|arch|/|tfm|",
+      "/home/godly/.nuget/packages"
     ]
   }
 }

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\samae\\RestfulApi\\RestfulApi.csproj": {}
+    "/home/godly/RestfulAPI/RestfulAPI/RestfulApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\samae\\RestfulApi\\RestfulApi.csproj": {
+    "/home/godly/RestfulAPI/RestfulAPI/RestfulApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\samae\\RestfulApi\\RestfulApi.csproj",
+        "projectUniqueName": "/home/godly/RestfulAPI/RestfulAPI/RestfulApi.csproj",
         "projectName": "RestfulApi",
-        "projectPath": "C:\\Users\\samae\\RestfulApi\\RestfulApi.csproj",
-        "packagesPath": "C:\\Users\\samae\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\samae\\RestfulApi\\obj\\",
+        "projectPath": "/home/godly/RestfulAPI/RestfulAPI/RestfulApi.csproj",
+        "packagesPath": "/home/godly/.nuget/packages/",
+        "outputPath": "/home/godly/RestfulAPI/RestfulAPI/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\samae\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/home/godly/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -83,7 +83,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/5.0.403/RuntimeIdentifierGraph.json"
         }
       }
     }
