@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\samae\\RestfulApi\\RestfulApi.csproj": {}
+    "C:\\Users\\Anthony\\Project\\RestfulAPI\\RestfulApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\samae\\RestfulApi\\RestfulApi.csproj": {
+    "C:\\Users\\Anthony\\Project\\RestfulAPI\\RestfulApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\samae\\RestfulApi\\RestfulApi.csproj",
+        "projectUniqueName": "C:\\Users\\Anthony\\Project\\RestfulAPI\\RestfulApi.csproj",
         "projectName": "RestfulApi",
-        "projectPath": "C:\\Users\\samae\\RestfulApi\\RestfulApi.csproj",
-        "packagesPath": "C:\\Users\\samae\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\samae\\RestfulApi\\obj\\",
+        "projectPath": "C:\\Users\\Anthony\\Project\\RestfulAPI\\RestfulApi.csproj",
+        "packagesPath": "C:\\Users\\Anthony\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Anthony\\Project\\RestfulAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\samae\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Anthony\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -53,6 +53,10 @@
               "version": "[5.0.0, )"
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Pomelo.EntityFrameworkCore.MySql": {
               "target": "Package",
               "version": "[5.0.0, )"
             },
