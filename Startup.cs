@@ -12,6 +12,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using Microsoft.EntityFrameworkCore;
+using Pomelo.EntityFrameworkCore.MySql;
 using RestfulApi.Models;
 
 namespace RestfulApi
@@ -34,13 +35,15 @@ namespace RestfulApi
             //     new MySqlServerVersion(new Version(8, 0, 11))
             // );
             services.AddDbContext<BatteryContext>(options =>
-                options.UseMySql("Server=localhost; Port=3306; Database=root; Uid=root; Pwd=root;",
+                options.UseMySql(Configuration.GetConnectionString("DefaultConnection"), 
                 new MySqlServerVersion(new Version(8, 0, 11)),
                 builder =>
                 {
                     builder.EnableRetryOnFailure(5, TimeSpan.FromSeconds(10), null);
                 }
                 ));
+
+
             services.AddMvc();
             services.AddSwaggerGen(c =>
             {
@@ -69,6 +72,5 @@ namespace RestfulApi
                 endpoints.MapControllers();
             });
         }
-
     }
 }
