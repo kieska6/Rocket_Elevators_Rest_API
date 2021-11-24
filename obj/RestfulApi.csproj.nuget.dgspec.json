@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/godly/RestfulAPI/RestfulAPI/RestfulApi.csproj": {}
+    "/home/godly/RestfulAPI/RestfulApi.csproj": {}
   },
   "projects": {
-    "/home/godly/RestfulAPI/RestfulAPI/RestfulApi.csproj": {
+    "/home/godly/RestfulAPI/RestfulApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/godly/RestfulAPI/RestfulAPI/RestfulApi.csproj",
+        "projectUniqueName": "/home/godly/RestfulAPI/RestfulApi.csproj",
         "projectName": "RestfulApi",
-        "projectPath": "/home/godly/RestfulAPI/RestfulAPI/RestfulApi.csproj",
+        "projectPath": "/home/godly/RestfulAPI/RestfulApi.csproj",
         "packagesPath": "/home/godly/.nuget/packages/",
-        "outputPath": "/home/godly/RestfulAPI/RestfulAPI/obj/",
+        "outputPath": "/home/godly/RestfulAPI/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/godly/.nuget/NuGet/NuGet.Config"
