@@ -1,8 +1,0 @@
-{
-  "runtimeOptions": {
-    "additionalProbingPaths": [
-      "/home/godly/.dotnet/store/|arch|/|tfm|",
-      "/home/godly/.nuget/packages"
-    ]
-  }
-}
