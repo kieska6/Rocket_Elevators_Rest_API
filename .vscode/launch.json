@@ -14,8 +14,8 @@
             "program": "${workspaceFolder}/bin/Debug/net5.0/RestfulApi.dll",
             "args": [],
             "cwd": "${workspaceFolder}",
-            "stopAtEntry": false,
-            "justMyCode": false,
+            // "stopAtEntry": false,
+            // "justMyCode": false,
             "logging": {
                 "moduleLoad": false
             },
