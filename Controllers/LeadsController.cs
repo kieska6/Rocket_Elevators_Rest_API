@@ -11,47 +11,47 @@ namespace RestfulApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class BatteriesController : ControllerBase
+    public class LeadsController : ControllerBase
     {
-        private readonly BatteryContext _context;
+        private readonly LeadContext _context;
 
-        public BatteriesController(BatteryContext context)
+        public LeadsController(LeadContext context)
         {
             _context = context;
         }
 
-        // GET: api/Batteries
+        // GET: api/Leads
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Battery>>> GetBatteries()
+        public async Task<ActionResult<IEnumerable<Lead>>> GetLeads()
         {
-            return await _context.batteries.ToListAsync();
+            return await _context.leads.ToListAsync();
         }
 
-        // GET: api/Batteries/5
+        // GET: api/Leads/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Battery>> GetBattery(long id)
+        public async Task<ActionResult<Lead>> GetLead(long id)
         {
-            var battery = await _context.batteries.FindAsync(id);
+            var lead = await _context.leads.FindAsync(id);
 
-            if (battery == null)
+            if (lead == null)
             {
                 return NotFound();
             }
 
-            return battery;
+            return lead;
         }
 
-        // PUT: api/Batteries/5
+        // PUT: api/Leads/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutBattery(long id, Battery battery)
+        public async Task<IActionResult> PutLead(long id, Lead lead)
         {
-            if (id != battery.Id)
+            if (id != lead.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(battery).State = EntityState.Modified;
+            _context.Entry(lead).State = EntityState.Modified;
 
             try
             {
@@ -59,7 +59,7 @@ namespace RestfulApi.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!BatteryExists(id))
+                if (!LeadExists(id))
                 {
                     return NotFound();
                 }
@@ -72,36 +72,36 @@ namespace RestfulApi.Controllers
             return NoContent();
         }
 
-        // POST: api/Batteries
+        // POST: api/Leads
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Battery>> PostBattery(Battery battery)
+        public async Task<ActionResult<Lead>> PostLead(Lead lead)
         {
-            _context.batteries.Add(battery);
+            _context.leads.Add(lead);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetBattery), new { id = battery.Id }, battery);
+            return CreatedAtAction(nameof(GetLead), new { id = lead.Id }, lead);
         }
 
-        // DELETE: api/Batteries/5
+        // DELETE: api/Leads/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteBattery(long id)
+        public async Task<IActionResult> DeleteLead(long id)
         {
-            var battery = await _context.batteries.FindAsync(id);
-            if (battery == null)
+            var lead = await _context.leads.FindAsync(id);
+            if (lead == null)
             {
                 return NotFound();
             }
 
-            _context.batteries.Remove(battery);
+            _context.leads.Remove(lead);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool BatteryExists(long id)
+        private bool LeadExists(long id)
         {
-            return _context.batteries.Any(e => e.Id == id);
+            return _context.leads.Any(e => e.Id == id);
         }
     }
 }

@@ -11,47 +11,47 @@ namespace RestfulApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class BatteriesController : ControllerBase
+    public class ColumnsController : ControllerBase
     {
-        private readonly BatteryContext _context;
+        private readonly ColumnContext _context;
 
-        public BatteriesController(BatteryContext context)
+        public ColumnsController(ColumnContext context)
         {
             _context = context;
         }
 
-        // GET: api/Batteries
+        // GET: api/Columns
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Battery>>> GetBatteries()
+        public async Task<ActionResult<IEnumerable<Column>>> GetColumn()
         {
-            return await _context.batteries.ToListAsync();
+            return await _context.columns.ToListAsync();
         }
 
-        // GET: api/Batteries/5
+        // GET: api/Columns/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Battery>> GetBattery(long id)
+        public async Task<ActionResult<Column>> GetColumn(long id)
         {
-            var battery = await _context.batteries.FindAsync(id);
+            var column = await _context.columns.FindAsync(id);
 
-            if (battery == null)
+            if (column == null)
             {
                 return NotFound();
             }
 
-            return battery;
+            return column;
         }
 
-        // PUT: api/Batteries/5
+        // PUT: api/Columns/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutBattery(long id, Battery battery)
+        public async Task<IActionResult> PutColumn(long id, Column column)
         {
-            if (id != battery.Id)
+            if (id != column.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(battery).State = EntityState.Modified;
+            _context.Entry(column).State = EntityState.Modified;
 
             try
             {
@@ -59,7 +59,7 @@ namespace RestfulApi.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!BatteryExists(id))
+                if (!ColumnExists(id))
                 {
                     return NotFound();
                 }
@@ -72,36 +72,36 @@ namespace RestfulApi.Controllers
             return NoContent();
         }
 
-        // POST: api/Batteries
+        // POST: api/Columns
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Battery>> PostBattery(Battery battery)
+        public async Task<ActionResult<Column>> PostColumn(Column column)
         {
-            _context.batteries.Add(battery);
+            _context.columns.Add(column);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetBattery), new { id = battery.Id }, battery);
+            return CreatedAtAction(nameof(GetColumn), new { id = column.Id }, column);
         }
 
-        // DELETE: api/Batteries/5
+        // DELETE: api/Columns/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteBattery(long id)
+        public async Task<IActionResult> DeleteColumn(long id)
         {
-            var battery = await _context.batteries.FindAsync(id);
-            if (battery == null)
+            var column = await _context.columns.FindAsync(id);
+            if (column == null)
             {
                 return NotFound();
             }
 
-            _context.batteries.Remove(battery);
+            _context.columns.Remove(column);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool BatteryExists(long id)
+        private bool ColumnExists(long id)
         {
-            return _context.batteries.Any(e => e.Id == id);
+            return _context.columns.Any(e => e.Id == id);
         }
     }
 }

@@ -11,47 +11,47 @@ namespace RestfulApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class BatteriesController : ControllerBase
+    public class BuildingsController : ControllerBase
     {
-        private readonly BatteryContext _context;
+        private readonly BuildingContext _context;
 
-        public BatteriesController(BatteryContext context)
+        public BuildingsController(BuildingContext context)
         {
             _context = context;
         }
 
-        // GET: api/Batteries
+        // GET: api/Buildings
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Battery>>> GetBatteries()
+        public async Task<ActionResult<IEnumerable<Building>>> GetBuildings()
         {
-            return await _context.batteries.ToListAsync();
+            return await _context.buildings.ToListAsync();
         }
 
-        // GET: api/Batteries/5
+        // GET: api/Buildings/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Battery>> GetBattery(long id)
+        public async Task<ActionResult<Building>> GetBuilding(long id)
         {
-            var battery = await _context.batteries.FindAsync(id);
+            var building = await _context.buildings.FindAsync(id);
 
-            if (battery == null)
+            if (building == null)
             {
                 return NotFound();
             }
 
-            return battery;
+            return building;
         }
 
-        // PUT: api/Batteries/5
+        // PUT: api/Buildings/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutBattery(long id, Battery battery)
+        public async Task<IActionResult> PutBuilding(long id, Building building)
         {
-            if (id != battery.Id)
+            if (id != building.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(battery).State = EntityState.Modified;
+            _context.Entry(building).State = EntityState.Modified;
 
             try
             {
@@ -59,7 +59,7 @@ namespace RestfulApi.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!BatteryExists(id))
+                if (!BuildingExists(id))
                 {
                     return NotFound();
                 }
@@ -72,36 +72,36 @@ namespace RestfulApi.Controllers
             return NoContent();
         }
 
-        // POST: api/Batteries
+        // POST: api/Buildings
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Battery>> PostBattery(Battery battery)
+        public async Task<ActionResult<Building>> PostBuilding(Building building)
         {
-            _context.batteries.Add(battery);
+            _context.buildings.Add(building);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetBattery), new { id = battery.Id }, battery);
+            return CreatedAtAction(nameof(GetBuilding), new { id = building.Id }, building);
         }
 
-        // DELETE: api/Batteries/5
+        // DELETE: api/Buildings/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteBattery(long id)
+        public async Task<IActionResult> DeleteBuilding(long id)
         {
-            var battery = await _context.batteries.FindAsync(id);
-            if (battery == null)
+            var building = await _context.buildings.FindAsync(id);
+            if (building == null)
             {
                 return NotFound();
             }
 
-            _context.batteries.Remove(battery);
+            _context.buildings.Remove(building);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool BatteryExists(long id)
+        private bool BuildingExists(long id)
         {
-            return _context.batteries.Any(e => e.Id == id);
+            return _context.buildings.Any(e => e.Id == id);
         }
     }
 }
