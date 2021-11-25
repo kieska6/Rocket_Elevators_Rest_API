@@ -1,9 +1,10 @@
 namespace RestfulApi.Models
 {
-    public class Elevator
+    public class Building
     {
         public long Id { get; set; }
-        public string Status { get; set; }
+        public string status { get; set; }
 
     }
+    
 }

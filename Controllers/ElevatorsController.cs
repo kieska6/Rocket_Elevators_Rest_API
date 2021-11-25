@@ -26,6 +26,7 @@ namespace RestfulApi.Controllers
         {
             return await _context.elevators.ToListAsync();
         }
+       
 
         // GET: api/Elevators/5
         [HttpGet("{id}")]
@@ -40,6 +41,16 @@ namespace RestfulApi.Controllers
 
             return elevator;
         }
+         // GET: api/Elevators/status
+        [HttpGet("status")]
+        public async Task<ActionResult<Elevator>> GetListElevator(string Status)
+        {
+            // var elevatorstatus = Status{"Offline" && "Intervention"};
+            var elevator = await _context.elevators.FindAsync(x => x.Status === "Offline");
+            return elevator;
+        }
+        
+
 
         // PUT: api/Elevators/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
