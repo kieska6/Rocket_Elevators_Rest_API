@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RestfulApi.Models;
+// using System.Data.Entity;
 
 namespace RestfulApi.Controllers
 {
@@ -43,10 +44,10 @@ namespace RestfulApi.Controllers
         }
          // GET: api/Elevators/status
         [HttpGet("status")]
-        public async Task<ActionResult<Elevator>> GetListElevator(string Status)
+        public async Task<List<Elevator>> GetListElevator(string Status)
         {
-            // var elevatorstatus = Status{"Offline" && "Intervention"};
-            var elevator = await _context.elevators.FindAsync(x => x.Status === "Offline");
+            // var offlineStatus= new[] {"Offline", "Intervention"};
+            var elevator = await _context.elevators.Where(x => x.Status == "Offline").ToListAsync();
             return elevator;
         }
         
