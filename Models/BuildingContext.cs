@@ -10,5 +10,6 @@ namespace RestfulApi.Models
         }
 
         public DbSet<Building> buildings { get; set; }
+       
     }
 }

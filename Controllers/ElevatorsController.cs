@@ -47,7 +47,7 @@ namespace RestfulApi.Controllers
         public async Task<List<Elevator>> GetListElevator(string Status)
         {
             // var offlineStatus= new[] {"Offline", "Intervention"};
-            var elevator = await _context.elevators.Where(x => x.Status == "Offline").ToListAsync();
+            var elevator = await _context.elevators.Where(x => x.status == "Offline" || x.status == "Intervention" ).ToListAsync();
             return elevator;
         }
         

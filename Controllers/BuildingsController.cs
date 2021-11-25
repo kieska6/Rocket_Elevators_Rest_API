@@ -40,6 +40,16 @@ namespace RestfulApi.Controllers
 
             return building;
         }
+        //  GET: api/Buildings/BuildingIntervention
+        [HttpGet("BuildingIntervention")]
+        public async Task<List<Building>> GetListBuilding(long id)
+        {
+            
+            var building = await _context.buildings.Where(x => x.batteries.status == "Intervention"
+                                                               || x.columns.status == "Intervention"
+                                                               || x.elevators.status == "Intervention").ToListAsync();
+            return building;
+        }
 
         // PUT: api/Buildings/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
