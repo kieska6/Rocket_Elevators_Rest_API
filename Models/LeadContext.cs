@@ -7,6 +7,7 @@ namespace RestfulApi.Models
         public LeadContext(DbContextOptions<LeadContext> options)
             : base(options)
         {
+            
         }
 
         public DbSet<Lead> leads { get; set; }

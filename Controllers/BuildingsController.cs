@@ -45,22 +45,17 @@ namespace RestfulApi.Controllers
         
         [HttpGet("BuildingIntervention")]
     
-        public async Task<List<Building>> GetListBuilding()
-        
+        public async Task<List<Building>> GetListBuilding(long id)
         {
-            
-
-            List<Building> buildingsList;
-
+            var buildingsList = await _context.buildings.ToListAsync();
             foreach( var building in buildingsList)
             {
                 var battery = await _context.batteries.Where(x => x.status == "Intervention").ToListAsync();
-                buildingsList.Add(building);
                 var column = await _context.columns.Where(x => x.status == "Intervention").ToListAsync();
-                buildingsList.Add(building);
                 var elevator = await _context.elevators.Where(x => x.status == "Intervention").ToListAsync();
-                buildingsList.Add(building);
-
+                if(battery != null || column != null || elevator != null) {
+                    buildingsList.Add(building);
+                }
             }
             return buildingsList;
 

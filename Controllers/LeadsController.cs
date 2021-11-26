@@ -14,10 +14,12 @@ namespace RestfulApi.Controllers
     public class LeadsController : ControllerBase
     {
         private readonly LeadContext _context;
+        private readonly CustomerContext _cusContext;
 
-        public LeadsController(LeadContext context)
+        public LeadsController(LeadContext context,CustomerContext cusContext)
         {
             _context = context;
+            _cusContext = cusContext;
         }
 
         // GET: api/Leads
@@ -40,6 +42,40 @@ namespace RestfulApi.Controllers
 
             return lead;
         }
+
+                // GET: api/Leads/customerleads
+        [HttpGet("CustomerLeads")]
+        public async Task<ActionResult<IEnumerable<Lead>>> RecentLeads()
+        {   
+            var customerlist = await _cusContext.customers.ToListAsync();
+            List<string> customeremaillist = new List<string>();
+
+            foreach (Customer customer in customerlist)
+            {
+                customeremaillist.Add(customer.company_email);
+            }
+
+            var leadlist = await _context.leads.ToListAsync();
+            List<Lead> RecentLeadsList = new List<Lead>();
+
+            foreach (Lead lead in leadlist)
+            {
+                DateTime now = DateTime.Now;
+                TimeSpan elapsed = now.Subtract(lead.created_at);
+                int daysAgo = (int)elapsed.TotalDays;
+
+                if (daysAgo > 30)
+                {
+                    // check if email is not part of company_email, if so =>
+                    if (!customeremaillist.Contains(lead.email))
+                    {
+                    RecentLeadsList.Add(lead);
+                    }
+                } 
+            }
+            return RecentLeadsList;
+        }
+
 
         // PUT: api/Leads/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
