@@ -6,7 +6,7 @@ namespace RestfulApi.Models
     {
         public long Id { get; set; }
         public string status { get; set; }
-        public virtual ICollection<Building> buildings { get; } = new HashSet<Building>();
+        
 
     }
 }

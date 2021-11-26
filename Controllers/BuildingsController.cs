@@ -1,3 +1,4 @@
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -41,14 +42,42 @@ namespace RestfulApi.Controllers
             return building;
         }
         //  GET: api/Buildings/BuildingIntervention
+        
         [HttpGet("BuildingIntervention")]
-        public async Task<List<Building>> GetListBuilding(long id)
+    
+        public async Task<List<Building>> GetListBuilding()
+        
         {
             
-            var building = await _context.buildings.Where(x => x.batteries.status == "Intervention"
-                                                               || x.columns.status == "Intervention"
-                                                               || x.elevators.status == "Intervention").ToListAsync();
-            return building;
+
+            List<Building> buildingsList;
+
+            foreach( var building in buildingsList)
+            {
+                var battery = await _context.batteries.Where(x => x.status == "Intervention").ToListAsync();
+                buildingsList.Add(building);
+                var column = await _context.columns.Where(x => x.status == "Intervention").ToListAsync();
+                buildingsList.Add(building);
+                var elevator = await _context.elevators.Where(x => x.status == "Intervention").ToListAsync();
+                buildingsList.Add(building);
+
+            }
+            return buildingsList;
+
+            // List<Battery> batteriesList = new List<Battery>();
+            // List<Column> columnsList = new List<Column>();
+            // List<Elevator> elevatorsList = new List<Elevator>();
+            // var building = await _context.buildings.ToListAsync();   
+            // _context.buildings.ForEach(s => context.AddToBuildings(s));
+            // var battery = await _context.batteries.Where(x => x.status == "Intervention").ToListAsync();
+
+            // var column = await _context.columns.Where(x => x.status == "Intervention").ToListAsync();
+            // var elevator = await _context.elevators.Where(x => x.status == "Intervention").ToListAsync();
+
+            // var building = await _context.buildings.Where(battery
+            //                                               && column
+            //                                               && elevator).ToListAsync();
+            
         }
 
         // PUT: api/Buildings/5
