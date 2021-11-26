@@ -8,7 +8,8 @@ namespace RestfulApi.Models
             : base(options)
         {
         }
-
+        
         public DbSet<Battery> batteries { get; set; }
+        
     }
 }
