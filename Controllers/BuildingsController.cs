@@ -16,9 +16,16 @@ namespace RestfulApi.Controllers
     {
         private readonly BuildingContext _context;
 
-        public BuildingsController(BuildingContext context)
+        private readonly BatteryContext _batContext;
+        private readonly ColumnContext _colContext;
+        private readonly ElevatorContext _eleContext;
+
+        public BuildingsController(BuildingContext context, BatteryContext batContext,ColumnContext colContext,ElevatorContext eleContext)
         {
             _context = context;
+            _batContext = batContext;
+            _colContext = colContext;
+            _eleContext = eleContext;
         }
 
         // GET: api/Buildings
@@ -42,37 +49,57 @@ namespace RestfulApi.Controllers
             return building;
         }
         //  GET: api/Buildings/BuildingIntervention
-        
         [HttpGet("BuildingIntervention")]
-    
         public async Task<List<Building>> GetListBuilding(long id)
         {
+            List<Building> BuildingInterventions = new List<Building>();
+
             var buildingsList = await _context.buildings.ToListAsync();
-            foreach( var building in buildingsList)
-            {
-                var battery = await _context.batteries.Where(x => x.status == "Intervention").ToListAsync();
-                var column = await _context.columns.Where(x => x.status == "Intervention").ToListAsync();
-                var elevator = await _context.elevators.Where(x => x.status == "Intervention").ToListAsync();
-                if(battery != null || column != null || elevator != null) {
-                    buildingsList.Add(building);
+
+            foreach(Building building in buildingsList)
+            {   
+                var batterylist = await _batContext.batteries.ToListAsync();
+
+                foreach(Battery battery in batterylist)
+                {
+                    if (battery.building_id == building.Id && !BuildingInterventions.Contains(building))
+                    { 
+                        if (battery.status == "Intervention")
+                        {
+                            BuildingInterventions.Add(building);     
+                        } else
+                            {
+                                var columnlist = await _colContext.columns.ToListAsync();
+
+                                foreach(Column column in columnlist)
+                                {
+                                    if (column.battery_id == battery.Id && !BuildingInterventions.Contains(building))
+                                    {
+                                        if (column.status == "Intervention")
+                                        {
+                                            BuildingInterventions.Add(building);
+                                        } else 
+                                            {
+                                                var elevatorlist = await _eleContext.elevators.ToListAsync();
+
+                                                foreach(Elevator elevator in elevatorlist)
+                                                {
+                                                    if (elevator.column_id == battery.Id && !BuildingInterventions.Contains(building))
+                                                    {
+                                                        if (elevator.status == "Intervention")
+                                                        {
+                                                            BuildingInterventions.Add(building);
+                                                        }
+                                                    }
+                                                }
+                                            }                                                        
+                                    } 
+                                }
+                            }
+                    }
                 }
             }
-            return buildingsList;
-
-            // List<Battery> batteriesList = new List<Battery>();
-            // List<Column> columnsList = new List<Column>();
-            // List<Elevator> elevatorsList = new List<Elevator>();
-            // var building = await _context.buildings.ToListAsync();   
-            // _context.buildings.ForEach(s => context.AddToBuildings(s));
-            // var battery = await _context.batteries.Where(x => x.status == "Intervention").ToListAsync();
-
-            // var column = await _context.columns.Where(x => x.status == "Intervention").ToListAsync();
-            // var elevator = await _context.elevators.Where(x => x.status == "Intervention").ToListAsync();
-
-            // var building = await _context.buildings.Where(battery
-            //                                               && column
-            //                                               && elevator).ToListAsync();
-            
+            return BuildingInterventions;
         }
 
         // PUT: api/Buildings/5

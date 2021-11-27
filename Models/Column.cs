@@ -6,7 +6,6 @@ namespace RestfulApi.Models
     {
         public long Id { get; set; }
         public string status { get; set; }
-        
-
+        public int battery_id { get; set; }
     }
 }
