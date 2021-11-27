@@ -64,7 +64,7 @@ namespace RestfulApi.Controllers
                 TimeSpan elapsed = now.Subtract(lead.created_at);
                 int daysAgo = (int)elapsed.TotalDays;
 
-                if (daysAgo > 30)
+                if (daysAgo < 30)
                 {
                     // check if email is not part of company_email, if so =>
                     if (!customeremaillist.Contains(lead.email))
