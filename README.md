@@ -5,7 +5,7 @@ https://apexrocketapi.azurewebsites.net/swagger/
 
 The Rest Api will allow us to know and to manipulate the status of all the relevant entities of the operational database.
 
-To make it work:
+To make it work, use the corect endpoint for your needs:
 
 - Retrieving the current status of a specific Battery: **// GET: api/Batteries/1**
 - Changing the status of a specific Battery: **// POST: api/Batteries**
@@ -20,4 +20,4 @@ To make it work:
 This API is debloy on a Azure Server and establish a connection with the MySQL transactional database that serves the Ruby on Rails application.
 
 
-###### ***Team New Moo***
+###### ***Team New Moon***
