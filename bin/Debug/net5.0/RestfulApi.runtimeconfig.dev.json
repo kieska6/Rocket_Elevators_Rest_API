@@ -1,8 +1,8 @@
 {
   "runtimeOptions": {
     "additionalProbingPaths": [
-      "/home/godly/.dotnet/store/|arch|/|tfm|",
-      "/home/godly/.nuget/packages"
+      "/Users/kieska/.dotnet/store/|arch|/|tfm|",
+      "/Users/kieska/.nuget/packages"
     ]
   }
 }
