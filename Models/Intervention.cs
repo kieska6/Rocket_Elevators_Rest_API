@@ -6,6 +6,7 @@ namespace RestfulApi.Models
     {
         public long Id { get; set; }
         public string status { get; set; }
-        public DateTime started_At { get; set; }
+        public DateTime? started_At { get; set; }
+        public DateTime? finish_At { get; set; }
     }
 }
