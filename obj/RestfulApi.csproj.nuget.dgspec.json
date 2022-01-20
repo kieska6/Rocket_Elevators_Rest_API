@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/kieska/Documents/GitHub/RestfulAPI/RestfulApi.csproj": {}
+    "/Users/kieska/Desktop/Rocket_Elevators_Rest_API/RestfulApi.csproj": {}
   },
   "projects": {
-    "/Users/kieska/Documents/GitHub/RestfulAPI/RestfulApi.csproj": {
+    "/Users/kieska/Desktop/Rocket_Elevators_Rest_API/RestfulApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/kieska/Documents/GitHub/RestfulAPI/RestfulApi.csproj",
+        "projectUniqueName": "/Users/kieska/Desktop/Rocket_Elevators_Rest_API/RestfulApi.csproj",
         "projectName": "RestfulApi",
-        "projectPath": "/Users/kieska/Documents/GitHub/RestfulAPI/RestfulApi.csproj",
+        "projectPath": "/Users/kieska/Desktop/Rocket_Elevators_Rest_API/RestfulApi.csproj",
         "packagesPath": "/Users/kieska/.nuget/packages/",
-        "outputPath": "/Users/kieska/Documents/GitHub/RestfulAPI/obj/",
+        "outputPath": "/Users/kieska/Desktop/Rocket_Elevators_Rest_API/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/kieska/.nuget/NuGet/NuGet.Config"

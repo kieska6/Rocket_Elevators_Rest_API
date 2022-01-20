@@ -1,7 +1,7 @@
 # RestFul Api
 using C # and .NET Core 
 
-https://apexrocketapi.azurewebsites.net/swagger/
+https://rocketelevator6.herokuapp.com/
 
 The Rest Api will allow us to know and to manipulate the status of all the relevant entities of the operational database.
 
